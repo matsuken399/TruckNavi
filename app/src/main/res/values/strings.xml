@@ -1,0 +1,43 @@
+<resources>
+
+<!--    activity_main-->
+    <string name="app_name">TruckNavi</string>
+    <string name="idIn">ID:</string>
+    <string name="passIn">PASS:</string>
+    <string name="date">曜日</string>
+    <string name="course">コース</string>
+    <string name="bt_map">マップ表示</string>
+
+
+<!--    activity_navi_setting-->
+    <string-array name="date_list">
+        <item>1A</item>
+        <item>2A</item>
+        <item>3A</item>
+        <item>4A</item>
+        <item>5A</item>
+    </string-array>
+    <string-array name="course_list">
+        <item>50</item>
+        <item>51</item>
+        <item>52</item>
+        <item>53</item>
+        <item>54</item>
+        <item>55</item>
+        <item>56</item>
+    </string-array>
+    <string name="bt_course_fix">コース修正</string>
+    <string name="title_activity_map">Map</string>
+    <string name="dropped_pin">位置情報</string>
+
+    <!--    course_fix-->
+    <string name="title">コース修正</string>
+    <string name="et_date">DATE</string>
+    <string name="et_course">COURSE</string>
+    <string name="et_No">No</string>
+    <string name="et_name">NAME</string>
+    <string name="et_latlng">LatLng</string>
+    <string name="btn_add">ADD</string>
+    <string name="btn_delete">DELETE</string>
+    <string name="btn_show">Show All</string>
+</resources>
