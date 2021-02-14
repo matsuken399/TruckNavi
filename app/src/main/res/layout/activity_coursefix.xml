@@ -8,7 +8,7 @@
     android:padding="@dimen/dp_m"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context=".course_fix">
+    tools:context=".CourseFixActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv"

@@ -3,14 +3,12 @@ package com.websarva.wings.android.trucknavi
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.provider.BaseColumns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.websarva.wings.android.trucknavi.course_fix.Companion.dbHandler
 import kotlinx.android.synthetic.main.io_customer_update.view.*
 import kotlinx.android.synthetic.main.io_customers.view.*
 
@@ -54,7 +52,7 @@ class CustomerAdapter(mCtx: Context, val customers: ArrayList<Customer>) :
                     .setTitle("Warning")
                     .setMessage("Are You Sure to Delete : $customerName ")
                     .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
-                        if (course_fix.dbHandler.deleteCustomer(customer.customerID)) {
+                        if (CourseFixActivity.dbHandler.deleteCustomer(customer.customerID)) {
                             customers.removeAt(p1)
                             notifyItemRemoved(p1)
                             notifyItemRangeChanged(p1, customers.size)
@@ -89,7 +87,7 @@ class CustomerAdapter(mCtx: Context, val customers: ArrayList<Customer>) :
                     .setTitle("Update Customer Info.")
                     .setView(view)
                     .setPositiveButton("Update", DialogInterface.OnClickListener { dialog, which ->
-                        var isUpdate: Boolean = course_fix.dbHandler.updateCustomer(
+                        var isUpdate: Boolean = CourseFixActivity.dbHandler.updateCustomer(
                                 customer.customerID.toString(),
                                 view.editUpCustomerDate.text.toString(),
                                 view.editUpCustomerCourse.text.toString().toInt(),
@@ -115,5 +113,4 @@ class CustomerAdapter(mCtx: Context, val customers: ArrayList<Customer>) :
             alert.show()
         }
     }
-
 }

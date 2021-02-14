@@ -1,9 +1,8 @@
 package com.websarva.wings.android.trucknavi
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.websarva.wings.android.trucknavi.course_fix.Companion.dbHandler
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_add_customer.*
 
 class AddCustomerActivity : AppCompatActivity() {
@@ -12,7 +11,7 @@ class AddCustomerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_customer)
 
         btnSave.setOnClickListener {
-            if (etAddDate.text.isEmpty() || etAddCourse.text.isEmpty() ) {
+            if (etAddDate.text.isEmpty() || etAddCourse.text.isEmpty()) {
 //                || etAddNo.text.isEmpty() || etAddName.text.isEmpty() || etAddLatlng.text.isEmpty()
                 Toast.makeText(this, "Enter Customer Information", Toast.LENGTH_SHORT).show()
 
@@ -44,7 +43,7 @@ class AddCustomerActivity : AppCompatActivity() {
                     customer.customerLatlng = 0.0 else
                     customer.customerLatlng = etAddLatlng.text.toString().toDouble()
 
-                course_fix.dbHandler.addCustomer(this, customer)
+                CourseFixActivity.dbHandler.addCustomer(this, customer)
                 clearEdits()
             }
         }

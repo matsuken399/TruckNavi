@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TruckNavi">
         <activity android:name=".AddCustomerActivity"></activity>
-        <activity android:name=".course_fix" />
+        <activity android:name=".CourseFixActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -30,9 +30,9 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".map"
+            android:name=".MapActivity"
             android:label="@string/title_activity_map" />
-        <activity android:name=".navi_setting" />
+        <activity android:name=".NaviSettingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
