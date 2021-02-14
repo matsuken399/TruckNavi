@@ -1,6 +1,6 @@
 <resources>
 
-<!--    activity_main-->
+    <!--    activity_main-->
     <string name="app_name">TruckNavi</string>
     <string name="idIn">ID:</string>
     <string name="passIn">PASS:</string>
@@ -9,7 +9,7 @@
     <string name="bt_map">マップ表示</string>
 
 
-<!--    activity_navi_setting-->
+    <!--    activity_navi_setting-->
     <string-array name="date_list">
         <item>1A</item>
         <item>2A</item>
@@ -40,4 +40,7 @@
     <string name="btn_add">ADD</string>
     <string name="btn_delete">DELETE</string>
     <string name="btn_show">Show All</string>
+    <string name="btn_close">CANCEL AND CLOSE</string>
+    <string name="btn_update">UPDATE</string>
+    <string name="btn_save">SAVE</string>
 </resources>

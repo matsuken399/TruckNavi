@@ -10,170 +10,30 @@
     android:layout_gravity="center"
     tools:context=".course_fix">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="@string/title"
-        android:textSize="@dimen/sp_m"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title">
-
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="115dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:textSize="@dimen/sp_m"
-                android:text="@string/date"/>
-
-            <EditText
-                android:id="@+id/et_date"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"/>
-
-<!--            <Spinner-->
-<!--                android:id="@+id/sp_date"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_marginRight="10dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:hint="@string/et_date"-->
-<!--                android:spinnerMode="dialog" />-->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:textSize="@dimen/sp_m"
-                android:text="@string/course"/>
-
-            <EditText
-                android:id="@+id/et_course"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="number"/>
-
-<!--            <Spinner-->
-<!--                android:id="@+id/sp_course"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:hint="@string/et_course"-->
-<!--                android:entries="@array/course_list"-->
-<!--                android:spinnerMode="dialog" />-->
-
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/et_No"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="@string/et_No"
-            android:inputType="number" />
-
-        <EditText
-            android:id="@+id/et_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="@string/et_name"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/et_latlng"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="@string/et_latlng"
-            android:inputType="textMultiLine" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="3"
-        android:orientation="horizontal"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btn_add"
-            android:layout_width="0dp"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:onClick="addUser"
-            android:text="@string/btn_add" />
-
-        <Button
-            android:id="@+id/btn_delete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:onClick="deleteUser"
-            android:text="@string/btn_delete" />
-
-        <Button
-            android:id="@+id/btn_show"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:onClick="showAllUsers"
-            android:text="@string/btn_show" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-    <LinearLayout
-        android:id="@+id/ll_entries"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_result" />
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/fab_margin"
+            android:backgroundTint="@color/design_default_color_primary_dark"
+            android:src="@drawable/ic_baseline_person_add_24"
+            app:fabSize="normal" />
 
 
-
-
-
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
