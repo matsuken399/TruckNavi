@@ -11,73 +11,54 @@ import androidx.appcompat.app.AppCompatActivity
 
 class NaviSettingActivity : AppCompatActivity() {
 
-    // スピナー選択肢
-    val dateList = arrayOf(
-            "1A",
-            "2A",
-            "3A",
-            "4A",
-            "5A",
-    )
-
-    val courseList = arrayOf(
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-    )
+    private var dateSet: String? = null
+    private var courseSet: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navi_setting)
 
         // スピナー:曜日セット
-        val date_select: Spinner = findViewById(R.id.date_in)
-        val adapterDate = ArrayAdapter(
-                applicationContext, R.layout.spinner_item, dateList
-        )
-        adapterDate.setDropDownViewResource(R.layout.spinner_dropdown_item)
+        val dateSelect :Spinner = findViewById(R.id.date_in)
+        val dateItem = resources.getStringArray(R.array.date_list)
+        val dateAdapter = ArrayAdapter(this,R.layout.spinner_dropdown_item,dateItem)
+        dateSelect.adapter = dateAdapter
 
-        date_select.adapter = adapterDate
-        date_select.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        dateSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
             override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
                     position: Int,
                     id: Long
             ) {
-                val spinnerParent = parent as Spinner
-                val dateSet = spinnerParent.selectedItem as String
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+                val spinner = parent as? Spinner
+                val item1 = spinner?.selectedItem as? String
+                dateSet = item1
             }
         }
 
-
         // スピナー:コースセット
-        val course_select: Spinner = findViewById(R.id.course_in)
-        val adapterCourse = ArrayAdapter(
-                applicationContext, R.layout.spinner_item, courseList
-        )
-        adapterCourse.setDropDownViewResource(R.layout.spinner_dropdown_item)
+        val courseSelect :Spinner = findViewById(R.id.course_in)
+        val courseItem = resources.getStringArray(R.array.course_list)
+        val courseAdapter = ArrayAdapter(this,R.layout.spinner_dropdown_item,courseItem)
+        courseSelect.adapter = courseAdapter
 
-        course_select.adapter = adapterCourse
-        course_select.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        courseSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+
             override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
                     position: Int,
                     id: Long
             ) {
-                val spinnerParent = parent as Spinner
-                val courseSet = spinnerParent.selectedItem as String
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+                val spinner = parent as? Spinner
+                val item2 = spinner?.selectedItem as? String
+                courseSet = item2
             }
         }
 
@@ -95,6 +76,13 @@ class NaviSettingActivity : AppCompatActivity() {
 
         FixClick.setOnClickListener {
             val intent = Intent(this, CourseFixActivity::class.java)
+
+            val dateResult = dateSet
+            val courseResult = courseSet
+
+            intent.putExtra("date", dateResult)
+            intent.putExtra("course", courseResult)
+
             startActivity(intent)
         }
     }

@@ -19,7 +19,7 @@
         android:id="@+id/tvCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:text="@string/et_course"
         app:layout_constraintStart_toEndOf="@+id/tvInputDate"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,7 +28,7 @@
         android:id="@+id/tvNo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="24dp"
         android:text="@string/et_No"
         app:layout_constraintStart_toEndOf="@+id/tvInputCourse"
         app:layout_constraintTop_toTopOf="parent" />

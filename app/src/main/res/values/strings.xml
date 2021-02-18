@@ -11,11 +11,11 @@
 
     <!--    activity_navi_setting-->
     <string-array name="date_list">
-        <item>1A</item>
-        <item>2A</item>
-        <item>3A</item>
-        <item>4A</item>
-        <item>5A</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
     <string-array name="course_list">
         <item>50</item>

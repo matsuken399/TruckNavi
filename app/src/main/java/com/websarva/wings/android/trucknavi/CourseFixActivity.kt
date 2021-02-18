@@ -3,6 +3,7 @@ package com.websarva.wings.android.trucknavi
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,14 @@ class CourseFixActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coursefix)
+
+        val dateViewTop = intent.getStringExtra("date")
+        val courseViewTop = intent.getStringExtra("course")
+
+        findViewById<TextView>(R.id.dateView)
+        dateView.text = dateViewTop
+        findViewById<TextView>(R.id.courseView)
+        courseView.text = courseViewTop
 
         dbHandler = DBHandler(this, null, null, 1)
 

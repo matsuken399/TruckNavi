@@ -16,6 +16,4 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(applicationContext, NaviSettingActivity::class.java)
         startActivity(intent)
     }
-
-
 }
