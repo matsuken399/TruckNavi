@@ -91,20 +91,40 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/et_latlng"
-        app:layout_constraintBaseline_toBaselineOf="@+id/editUpCustomerLatlng"
+        android:text="@string/et_lat"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editUpCustomerLat"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editUpCustomerLatlng"
+        android:id="@+id/editUpCustomerLat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="@string/et_latlng"
+        android:hint="@string/et_lat"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editUpCustomerName" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/et_lng"
+        app:layout_constraintBaseline_toBaselineOf="@+id/editUpCustomerLng"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editUpCustomerLng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/et_lng"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editUpCustomerLat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,7 +36,8 @@
     <string name="et_course">COURSE</string>
     <string name="et_No">No</string>
     <string name="et_name">NAME</string>
-    <string name="et_latlng">LatLng</string>
+    <string name="et_lat">Lat</string>
+    <string name="et_lng">Lng</string>
     <string name="btn_add">ADD</string>
     <string name="btn_delete">DELETE</string>
     <string name="btn_show">Show All</string>

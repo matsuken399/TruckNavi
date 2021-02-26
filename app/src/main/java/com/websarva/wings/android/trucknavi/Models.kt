@@ -6,5 +6,6 @@ class Customer {
     var customerCourse: Int = 0
     var customerNo: Int = 0
     var customerName: String = ""
-    var customerLatlng: Double = 0.0
+    var customerLat: Double = 0.0
+    var customerLng: Double = 0.0
 }

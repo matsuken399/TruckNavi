@@ -1,0 +1,523 @@
+Index: app/src/main/res/drawable/ic_baseline_edit_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_baseline_edit_24.xml	(date 1614146252293)
++++ app/src/main/res/drawable/ic_baseline_edit_24.xml	(date 1614146252293)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#10FF1F"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M3,17.25V21h3.75L17.81,9.94l-3.75,-3.75L3,17.25zM20.71,7.04c0.39,-0.39 0.39,-1.02 0,-1.41l-2.34,-2.34c-0.39,-0.39 -1.02,-0.39 -1.41,0l-1.83,1.83 3.75,3.75 1.83,-1.83z"/>
++</vector>
+Index: app/src/main/res/drawable/ic_baseline_warning_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_baseline_warning_24.xml	(revision c950deb67f0bb14198737620622b92976a6f39c0)
++++ app/src/main/res/drawable/ic_baseline_warning_24.xml	(date 1614146278328)
+@@ -1,4 +1,4 @@
+-<vector android:height="24dp" android:tint="#FF1A11"
++<vector android:height="24dp" android:tint="#FF0817"
+     android:viewportHeight="24" android:viewportWidth="24"
+     android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+     <path android:fillColor="@android:color/white" android:pathData="M1,21h22L12,2 1,21zM13,18h-2v-2h2v2zM13,14h-2v-4h2v4z"/>
+Index: app/src/main/res/layout/io_customer_update.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/io_customer_update.xml	(revision c950deb67f0bb14198737620622b92976a6f39c0)
++++ app/src/main/res/layout/io_customer_update.xml	(date 1614154189049)
+@@ -91,20 +91,40 @@
+         android:id="@+id/textView5"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="@string/et_latlng"
+-        app:layout_constraintBaseline_toBaselineOf="@+id/editUpCustomerLatlng"
++        android:text="@string/et_lat"
++        app:layout_constraintBaseline_toBaselineOf="@+id/editUpCustomerLat"
+         app:layout_constraintStart_toStartOf="parent" />
+ 
+     <EditText
+-        android:id="@+id/editUpCustomerLatlng"
++        android:id="@+id/editUpCustomerLat"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="140dp"
+         android:layout_marginTop="8dp"
+         android:ems="10"
+-        android:hint="@string/et_latlng"
++        android:hint="@string/et_lat"
+         android:inputType="textPersonName"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/editUpCustomerName" />
+ 
++    <TextView
++        android:id="@+id/textView5"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="@string/et_lng"
++        app:layout_constraintBaseline_toBaselineOf="@+id/editUpCustomerLng"
++        app:layout_constraintStart_toStartOf="parent" />
++
++    <EditText
++        android:id="@+id/editUpCustomerLng"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="140dp"
++        android:layout_marginTop="8dp"
++        android:ems="10"
++        android:hint="@string/et_lng"
++        android:inputType="textPersonName"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/editUpCustomerLat" />
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/io_customers.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/io_customers.xml	(revision c950deb67f0bb14198737620622b92976a6f39c0)
++++ app/src/main/res/layout/io_customers.xml	(date 1614153749607)
+@@ -15,6 +15,14 @@
+         app:layout_constraintBaseline_toBaselineOf="@+id/tvInputDate"
+         app:layout_constraintStart_toStartOf="parent" />
+ 
++    <TextView
++        android:id="@+id/tvInputDate"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="16dp"
++        app:layout_constraintStart_toEndOf="@+id/tvDate"
++        app:layout_constraintTop_toTopOf="parent" />
++
+     <TextView
+         android:id="@+id/tvCourse"
+         android:layout_width="wrap_content"
+@@ -24,6 +32,14 @@
+         app:layout_constraintStart_toEndOf="@+id/tvInputDate"
+         app:layout_constraintTop_toTopOf="parent" />
+ 
++    <TextView
++        android:id="@+id/tvInputCourse"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginStart="16dp"
++        app:layout_constraintStart_toEndOf="@+id/tvCourse"
++        app:layout_constraintTop_toTopOf="parent" />
++
+     <TextView
+         android:id="@+id/tvNo"
+         android:layout_width="wrap_content"
+@@ -34,89 +50,97 @@
+         app:layout_constraintTop_toTopOf="parent" />
+ 
+     <TextView
+-        android:id="@+id/tvName"
++        android:id="@+id/tvInputNo"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_marginTop="16dp"
+-        android:text="@string/et_name"
+-        app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
++        android:layout_marginStart="16dp"
++        app:layout_constraintStart_toEndOf="@+id/tvNo"
++        app:layout_constraintTop_toTopOf="parent" />
+ 
+     <TextView
+-        android:id="@+id/tvLatlng"
++        android:id="@+id/tvName"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="16dp"
+-        android:text="@string/et_latlng"
++        android:text="@string/et_name"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
++        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+ 
+     <TextView
+-        android:id="@+id/tvInputDate"
++        android:id="@+id/tvInputName"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="16dp"
+-        app:layout_constraintStart_toEndOf="@+id/tvDate"
+-        app:layout_constraintTop_toTopOf="parent" />
++        android:layout_marginTop="16dp"
++        app:layout_constraintStart_toEndOf="@+id/tvName"
++        app:layout_constraintTop_toBottomOf="@+id/tvInputDate" />
+ 
+     <TextView
+-        android:id="@+id/tvInputCourse"
++        android:id="@+id/tvLat"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_marginStart="16dp"
+-        app:layout_constraintStart_toEndOf="@+id/tvCourse"
+-        app:layout_constraintTop_toTopOf="parent" />
++        android:layout_marginTop="16dp"
++        android:text="@string/et_lat"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+ 
+     <TextView
+-        android:id="@+id/tvInputNo"
++        android:id="@+id/tvInputLat"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="16dp"
+-        app:layout_constraintStart_toEndOf="@+id/tvNo"
+-        app:layout_constraintTop_toTopOf="parent" />
++        android:layout_marginTop="16dp"
++        app:layout_constraintStart_toEndOf="@+id/tvLat"
++        app:layout_constraintTop_toBottomOf="@+id/tvInputName" />
+ 
+     <TextView
+-        android:id="@+id/tvInputName"
++        android:id="@+id/tvLng"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:layout_marginStart="16dp"
+         android:layout_marginTop="16dp"
+-        app:layout_constraintStart_toEndOf="@+id/tvName"
+-        app:layout_constraintTop_toBottomOf="@+id/tvInputDate" />
++        android:text="@string/et_lng"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/tvLat" />
+ 
+     <TextView
+-        android:id="@+id/tvInputLatlng"
++        android:id="@+id/tvInputLng"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="16dp"
+         android:layout_marginTop="16dp"
+-        app:layout_constraintStart_toEndOf="@+id/tvLatlng"
+-        app:layout_constraintTop_toBottomOf="@+id/tvInputName" />
++        app:layout_constraintStart_toEndOf="@+id/tvLng"
++        app:layout_constraintTop_toBottomOf="@+id/tvInputLat" />
+ 
+-    <Button
++    <ImageView
+         android:id="@+id/btnUpdate"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="@string/btn_update"
+-        app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintTop_toTopOf="parent" />
++        android:layout_margin="16dp"
++        app:layout_constraintEnd_toStartOf="@+id/btnDelete"
++        app:layout_constraintTop_toTopOf="parent"
++        app:srcCompat="@drawable/ic_baseline_edit_24" />
+ 
+-    <Button
++    <ImageView
+         android:id="@+id/btnDelete"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+-        android:text="@string/btn_delete"
++        android:layout_marginTop="16dp"
+         app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/btnUpdate" />
++        app:layout_constraintTop_toTopOf="parent"
++        app:srcCompat="@drawable/ic_baseline_delete_24" />
+ 
+     <ImageView
+         android:id="@+id/imageView"
+         android:layout_width="match_parent"
+         android:layout_height="5dp"
++        android:layout_marginTop="16dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/btnDelete"
++        app:layout_constraintTop_toBottomOf="@+id/tvLng"
+         app:srcCompat="@drawable/dotted_line" />
+ 
++
++
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/websarva/wings/android/trucknavi/DBHandler.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/websarva/wings/android/trucknavi/DBHandler.kt	(revision c950deb67f0bb14198737620622b92976a6f39c0)
++++ app/src/main/java/com/websarva/wings/android/trucknavi/DBHandler.kt	(date 1614155153691)
+@@ -19,7 +19,9 @@
+                 "$COLUMN_COURSE TEXT," +
+                 "$COLUMN_NO TEXT," +
+                 "$COLUMN_NAME TEXT," +
+-                "$COLUMN_Latlng DOUBLE DEFAULT 0)")
++                "$COLUMN_Lat DOUBLE DEFAULT 0," +
++        "$COLUMN_Lng DOUBLE DEFAULT 0)")
++
+         db?.execSQL(CREATE_CUSTOMERS_TABLE)
+     }
+ 
+@@ -42,7 +44,8 @@
+                 customer.customerCourse = cursor.getInt(cursor.getColumnIndex(COLUMN_COURSE))
+                 customer.customerNo = cursor.getInt(cursor.getColumnIndex(COLUMN_NO))
+                 customer.customerName = cursor.getString(cursor.getColumnIndex(COLUMN_NAME))
+-                customer.customerLatlng = cursor.getDouble(cursor.getColumnIndex(COLUMN_Latlng))
++                customer.customerLat = cursor.getDouble(cursor.getColumnIndex(COLUMN_Lat))
++                customer.customerLng = cursor.getDouble(cursor.getColumnIndex(COLUMN_Lng))
+                 customers.add(customer)
+                 cursor.moveToNext()
+             }
+@@ -59,7 +62,8 @@
+         values.put(COLUMN_COURSE, customer.customerCourse)
+         values.put(COLUMN_NO, customer.customerNo)
+         values.put(COLUMN_NAME, customer.customerName)
+-        values.put(COLUMN_Latlng, customer.customerLatlng)
++        values.put(COLUMN_Lat, customer.customerLat)
++        values.put(COLUMN_Lng, customer.customerLng)
+         val db = this.writableDatabase
+         try {
+             db.insert(CUSTOMERS_TABLE_NAME, null, values)
+@@ -84,7 +88,8 @@
+         return result
+     }
+ 
+-    fun updateCustomer(id: String, customerDate: String, customerCourse: Int, customerNo: Int, customerName: String, customerLatlng: Double):
++    fun updateCustomer(id: String, customerDate: String, customerCourse: Int, customerNo: Int,
++                       customerName: String, customerLat: Double, customerLng: Double):
+             Boolean {
+         val db = this.writableDatabase
+         val contentValues = ContentValues()
+@@ -93,7 +98,8 @@
+         contentValues.put(COLUMN_COURSE, customerCourse)
+         contentValues.put(COLUMN_NO, customerNo)
+         contentValues.put(COLUMN_NAME, customerName)
+-        contentValues.put(COLUMN_Latlng, customerLatlng)
++        contentValues.put(COLUMN_Lat, customerLat)
++        contentValues.put(COLUMN_Lng, customerLng)
+ 
+         try {
+             db.update(CUSTOMERS_TABLE_NAME, contentValues, "$COLUMN_ID = ?", arrayOf(id))
+@@ -116,6 +122,7 @@
+         const val COLUMN_COURSE = "course"
+         const val COLUMN_NO = "No"
+         const val COLUMN_NAME = "name"
+-        const val COLUMN_Latlng = "latlng"
++        const val COLUMN_Lat = "lat"
++        const val COLUMN_Lng = "lng"
+     }
+ }
+Index: app/src/main/java/com/websarva/wings/android/trucknavi/AddCustomerActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/websarva/wings/android/trucknavi/AddCustomerActivity.kt	(revision c950deb67f0bb14198737620622b92976a6f39c0)
++++ app/src/main/java/com/websarva/wings/android/trucknavi/AddCustomerActivity.kt	(date 1614148513686)
+@@ -21,7 +21,8 @@
+                 customer.customerCourse = etAddCourse.text.toString().toInt()
+                 customer.customerNo = etAddNo.text.toString().toInt()
+                 customer.customerName = etAddName.text.toString()
+-                customer.customerLatlng = etAddLatlng.text.toString().toDouble()
++                customer.customerLat = etAddLat.text.toString().toDouble()
++                customer.customerLng = etAddLng.text.toString().toDouble()
+ 
+                 if (etAddDate.text.isEmpty())
+                     customer.customerDate = 0 else
+@@ -39,9 +40,13 @@
+                     customer.customerName = "" else
+                     customer.customerName = etAddName.text.toString()
+ 
+-                if (etAddLatlng.text.isEmpty())
+-                    customer.customerLatlng = 0.0 else
+-                    customer.customerLatlng = etAddLatlng.text.toString().toDouble()
++                if (etAddLat.text.isEmpty())
++                    customer.customerLat = 0.0 else
++                    customer.customerLat = etAddLat.text.toString().toDouble()
++
++                if (etAddLng.text.isEmpty())
++                    customer.customerLng = 0.0 else
++                    customer.customerLng = etAddLng.text.toString().toDouble()
+ 
+                 CourseFixActivity.dbHandler.addCustomer(this, customer)
+                 clearEdits()
+@@ -59,6 +64,7 @@
+         etAddCourse.text.clear()
+         etAddNo.text.clear()
+         etAddName.text.clear()
+-        etAddLatlng.text.clear()
++        etAddLat.text.clear()
++        etAddLng.text.clear()
+     }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_add_customer.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_add_customer.xml	(revision c950deb67f0bb14198737620622b92976a6f39c0)
++++ app/src/main/res/layout/activity_add_customer.xml	(date 1614153954622)
+@@ -46,15 +46,26 @@
+         app:layout_constraintTop_toBottomOf="@+id/etAddNo" />
+ 
+     <EditText
+-        android:id="@+id/etAddLatlng"
++        android:id="@+id/etAddLat"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:ems="10"
+         android:inputType="number"
+-        android:hint="@string/et_latlng"
++        android:hint="@string/et_lat"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/etAddName"
+         android:layout_marginBottom="10dp"/>
++
++    <EditText
++        android:id="@+id/etAddLng"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:ems="10"
++        android:inputType="number"
++        android:hint="@string/et_lng"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toBottomOf="@+id/etAddLat"
++        android:layout_marginBottom="10dp"/>
+ 
+     <Button
+         android:id="@+id/btnSave"
+@@ -62,7 +73,7 @@
+         android:layout_height="wrap_content"
+         android:text="@string/btn_save"
+         app:layout_constraintStart_toStartOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/etAddLatlng" />
++        app:layout_constraintTop_toBottomOf="@+id/etAddLng" />
+ 
+     <Button
+         android:id="@+id/btnCancel"
+@@ -70,6 +81,6 @@
+         android:layout_height="wrap_content"
+         android:text="@string/btn_close"
+         app:layout_constraintEnd_toEndOf="parent"
+-        app:layout_constraintTop_toBottomOf="@+id/etAddLatlng" />
++        app:layout_constraintTop_toBottomOf="@+id/etAddLng" />
+ 
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/websarva/wings/android/trucknavi/Models.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/websarva/wings/android/trucknavi/Models.kt	(revision c950deb67f0bb14198737620622b92976a6f39c0)
++++ app/src/main/java/com/websarva/wings/android/trucknavi/Models.kt	(date 1614148770711)
+@@ -6,5 +6,6 @@
+     var customerCourse: Int = 0
+     var customerNo: Int = 0
+     var customerName: String = ""
+-    var customerLatlng: Double = 0.0
++    var customerLat: Double = 0.0
++    var customerLng: Double = 0.0
+ }
+\ No newline at end of file
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision c950deb67f0bb14198737620622b92976a6f39c0)
++++ app/src/main/res/values/strings.xml	(date 1614148770729)
+@@ -36,7 +36,8 @@
+     <string name="et_course">COURSE</string>
+     <string name="et_No">No</string>
+     <string name="et_name">NAME</string>
+-    <string name="et_latlng">LatLng</string>
++    <string name="et_lat">Lat</string>
++    <string name="et_lng">Lng</string>
+     <string name="btn_add">ADD</string>
+     <string name="btn_delete">DELETE</string>
+     <string name="btn_show">Show All</string>
+Index: app/src/main/java/com/websarva/wings/android/trucknavi/CustomerAdapter.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/websarva/wings/android/trucknavi/CustomerAdapter.kt	(revision c950deb67f0bb14198737620622b92976a6f39c0)
++++ app/src/main/java/com/websarva/wings/android/trucknavi/CustomerAdapter.kt	(date 1614155153715)
+@@ -23,7 +23,8 @@
+         val tvInputCourse = itemView.tvInputCourse
+         val tvInputNo = itemView.tvInputNo
+         val tvInputName = itemView.tvInputName
+-        val tvInputLatlng = itemView.tvInputLatlng
++        val tvInputLat = itemView.tvInputLat
++        val tvInputLng = itemView.tvInputLng
+         val btnUpdate = itemView.btnUpdate
+         val btnDelete = itemView.btnDelete
+     }
+@@ -43,7 +44,8 @@
+         p0.tvInputCourse.text = customer.customerCourse.toString()
+         p0.tvInputNo.text = customer.customerNo.toString()
+         p0.tvInputName.text = customer.customerName
+-        p0.tvInputLatlng.text = customer.customerLatlng.toString()
++        p0.tvInputLat.text = customer.customerLat.toString()
++        p0.tvInputLng.text = customer.customerLng.toString()
+ 
+         p0.btnDelete.setOnClickListener {
+             val customerName: String = customer.customerName
+@@ -75,13 +77,15 @@
+             val txtCustCourse: TextView = view.findViewById(R.id.editUpCustomerCourse)
+             val txtCustNo: TextView = view.findViewById(R.id.editUpCustomerNo)
+             val txtCustName: TextView = view.findViewById(R.id.editUpCustomerName)
+-            val txtCustLatlng: TextView = view.findViewById(R.id.editUpCustomerLatlng)
++            val txtCustLat: TextView = view.findViewById(R.id.editUpCustomerLat)
++            val txtCustLng: TextView = view.findViewById(R.id.editUpCustomerLng)
+ 
+             txtCustDate.text = customer.customerDate.toString()
+             txtCustCourse.text = customer.customerCourse.toString()
+             txtCustNo.text = customer.customerNo.toString()
+             txtCustName.text = customer.customerName
+-            txtCustLatlng.text = customer.customerLatlng.toString()
++            txtCustLat.text = customer.customerLat.toString()
++            txtCustLng.text = customer.customerLng.toString()
+ 
+             val builder = AlertDialog.Builder(mCtx)
+                     .setTitle("Update Customer Info.")
+@@ -93,14 +97,16 @@
+                                 view.editUpCustomerCourse.text.toString().toInt(),
+                                 view.editUpCustomerNo.text.toString().toInt(),
+                                 view.editUpCustomerName.text.toString(),
+-                                view.editUpCustomerLatlng.text.toString().toDouble()
++                                view.editUpCustomerLat.text.toString().toDouble(),
++                                view.editUpCustomerLng.text.toString().toDouble()
+                         )
+                         if (isUpdate == true) {
+                             customers[p1].customerDate = view.editUpCustomerDate.text.toString().toInt()
+                             customers[p1].customerCourse = view.editUpCustomerCourse.text.toString().toInt()
+                             customers[p1].customerNo = view.editUpCustomerNo.text.toString().toInt()
+                             customers[p1].customerName = view.editUpCustomerName.text.toString()
+-                            customers[p1].customerLatlng = view.editUpCustomerLatlng.text.toString().toDouble()
++                            customers[p1].customerLat = view.editUpCustomerLat.text.toString().toDouble()
++                            customers[p1].customerLng = view.editUpCustomerLng.text.toString().toDouble()
+ 
+                             notifyDataSetChanged()
+                             Toast.makeText(mCtx, "Updated Successfull", Toast.LENGTH_SHORT).show()
+Index: app/src/main/res/drawable/ic_baseline_delete_24.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_baseline_delete_24.xml	(date 1614146469535)
++++ app/src/main/res/drawable/ic_baseline_delete_24.xml	(date 1614146469535)
+@@ -0,0 +1,5 @@
++<vector android:height="24dp" android:tint="#FF0817"
++    android:viewportHeight="24" android:viewportWidth="24"
++    android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
++    <path android:fillColor="@android:color/white" android:pathData="M6,19c0,1.1 0.9,2 2,2h8c1.1,0 2,-0.9 2,-2V7H6v12zM19,4h-3.5l-1,-1h-5l-1,1H5v2h14V4z"/>
++</vector>

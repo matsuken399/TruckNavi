@@ -21,7 +21,8 @@ class AddCustomerActivity : AppCompatActivity() {
                 customer.customerCourse = etAddCourse.text.toString().toInt()
                 customer.customerNo = etAddNo.text.toString().toInt()
                 customer.customerName = etAddName.text.toString()
-                customer.customerLatlng = etAddLatlng.text.toString().toDouble()
+                customer.customerLat = etAddLat.text.toString().toDouble()
+                customer.customerLng = etAddLng.text.toString().toDouble()
 
                 if (etAddDate.text.isEmpty())
                     customer.customerDate = 0 else
@@ -39,9 +40,13 @@ class AddCustomerActivity : AppCompatActivity() {
                     customer.customerName = "" else
                     customer.customerName = etAddName.text.toString()
 
-                if (etAddLatlng.text.isEmpty())
-                    customer.customerLatlng = 0.0 else
-                    customer.customerLatlng = etAddLatlng.text.toString().toDouble()
+                if (etAddLat.text.isEmpty())
+                    customer.customerLat = 0.0 else
+                    customer.customerLat = etAddLat.text.toString().toDouble()
+
+                if (etAddLng.text.isEmpty())
+                    customer.customerLng = 0.0 else
+                    customer.customerLng = etAddLng.text.toString().toDouble()
 
                 CourseFixActivity.dbHandler.addCustomer(this, customer)
                 clearEdits()
@@ -59,6 +64,7 @@ class AddCustomerActivity : AppCompatActivity() {
         etAddCourse.text.clear()
         etAddNo.text.clear()
         etAddName.text.clear()
-        etAddLatlng.text.clear()
+        etAddLat.text.clear()
+        etAddLng.text.clear()
     }
 }

@@ -19,7 +19,9 @@ class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorF
                 "$COLUMN_COURSE TEXT," +
                 "$COLUMN_NO TEXT," +
                 "$COLUMN_NAME TEXT," +
-                "$COLUMN_Latlng DOUBLE DEFAULT 0)")
+                "$COLUMN_Lat DOUBLE DEFAULT 0," +
+        "$COLUMN_Lng DOUBLE DEFAULT 0)")
+
         db?.execSQL(CREATE_CUSTOMERS_TABLE)
     }
 
@@ -42,7 +44,8 @@ class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorF
                 customer.customerCourse = cursor.getInt(cursor.getColumnIndex(COLUMN_COURSE))
                 customer.customerNo = cursor.getInt(cursor.getColumnIndex(COLUMN_NO))
                 customer.customerName = cursor.getString(cursor.getColumnIndex(COLUMN_NAME))
-                customer.customerLatlng = cursor.getDouble(cursor.getColumnIndex(COLUMN_Latlng))
+                customer.customerLat = cursor.getDouble(cursor.getColumnIndex(COLUMN_Lat))
+                customer.customerLng = cursor.getDouble(cursor.getColumnIndex(COLUMN_Lng))
                 customers.add(customer)
                 cursor.moveToNext()
             }
@@ -59,7 +62,8 @@ class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorF
         values.put(COLUMN_COURSE, customer.customerCourse)
         values.put(COLUMN_NO, customer.customerNo)
         values.put(COLUMN_NAME, customer.customerName)
-        values.put(COLUMN_Latlng, customer.customerLatlng)
+        values.put(COLUMN_Lat, customer.customerLat)
+        values.put(COLUMN_Lng, customer.customerLng)
         val db = this.writableDatabase
         try {
             db.insert(CUSTOMERS_TABLE_NAME, null, values)
@@ -84,7 +88,8 @@ class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorF
         return result
     }
 
-    fun updateCustomer(id: String, customerDate: String, customerCourse: Int, customerNo: Int, customerName: String, customerLatlng: Double):
+    fun updateCustomer(id: String, customerDate: String, customerCourse: Int, customerNo: Int,
+                       customerName: String, customerLat: Double, customerLng: Double):
             Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
@@ -93,7 +98,8 @@ class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorF
         contentValues.put(COLUMN_COURSE, customerCourse)
         contentValues.put(COLUMN_NO, customerNo)
         contentValues.put(COLUMN_NAME, customerName)
-        contentValues.put(COLUMN_Latlng, customerLatlng)
+        contentValues.put(COLUMN_Lat, customerLat)
+        contentValues.put(COLUMN_Lng, customerLng)
 
         try {
             db.update(CUSTOMERS_TABLE_NAME, contentValues, "$COLUMN_ID = ?", arrayOf(id))
@@ -116,6 +122,7 @@ class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorF
         const val COLUMN_COURSE = "course"
         const val COLUMN_NO = "No"
         const val COLUMN_NAME = "name"
-        const val COLUMN_Latlng = "latlng"
+        const val COLUMN_Lat = "lat"
+        const val COLUMN_Lng = "lng"
     }
 }

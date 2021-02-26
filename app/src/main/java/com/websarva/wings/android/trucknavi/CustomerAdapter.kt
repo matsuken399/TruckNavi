@@ -23,7 +23,8 @@ class CustomerAdapter(mCtx: Context, val customers: ArrayList<Customer>) :
         val tvInputCourse = itemView.tvInputCourse
         val tvInputNo = itemView.tvInputNo
         val tvInputName = itemView.tvInputName
-        val tvInputLatlng = itemView.tvInputLatlng
+        val tvInputLat = itemView.tvInputLat
+        val tvInputLng = itemView.tvInputLng
         val btnUpdate = itemView.btnUpdate
         val btnDelete = itemView.btnDelete
     }
@@ -43,7 +44,8 @@ class CustomerAdapter(mCtx: Context, val customers: ArrayList<Customer>) :
         p0.tvInputCourse.text = customer.customerCourse.toString()
         p0.tvInputNo.text = customer.customerNo.toString()
         p0.tvInputName.text = customer.customerName
-        p0.tvInputLatlng.text = customer.customerLatlng.toString()
+        p0.tvInputLat.text = customer.customerLat.toString()
+        p0.tvInputLng.text = customer.customerLng.toString()
 
         p0.btnDelete.setOnClickListener {
             val customerName: String = customer.customerName
@@ -75,13 +77,15 @@ class CustomerAdapter(mCtx: Context, val customers: ArrayList<Customer>) :
             val txtCustCourse: TextView = view.findViewById(R.id.editUpCustomerCourse)
             val txtCustNo: TextView = view.findViewById(R.id.editUpCustomerNo)
             val txtCustName: TextView = view.findViewById(R.id.editUpCustomerName)
-            val txtCustLatlng: TextView = view.findViewById(R.id.editUpCustomerLatlng)
+            val txtCustLat: TextView = view.findViewById(R.id.editUpCustomerLat)
+            val txtCustLng: TextView = view.findViewById(R.id.editUpCustomerLng)
 
             txtCustDate.text = customer.customerDate.toString()
             txtCustCourse.text = customer.customerCourse.toString()
             txtCustNo.text = customer.customerNo.toString()
             txtCustName.text = customer.customerName
-            txtCustLatlng.text = customer.customerLatlng.toString()
+            txtCustLat.text = customer.customerLat.toString()
+            txtCustLng.text = customer.customerLng.toString()
 
             val builder = AlertDialog.Builder(mCtx)
                     .setTitle("Update Customer Info.")
@@ -93,14 +97,16 @@ class CustomerAdapter(mCtx: Context, val customers: ArrayList<Customer>) :
                                 view.editUpCustomerCourse.text.toString().toInt(),
                                 view.editUpCustomerNo.text.toString().toInt(),
                                 view.editUpCustomerName.text.toString(),
-                                view.editUpCustomerLatlng.text.toString().toDouble()
+                                view.editUpCustomerLat.text.toString().toDouble(),
+                                view.editUpCustomerLng.text.toString().toDouble()
                         )
                         if (isUpdate == true) {
                             customers[p1].customerDate = view.editUpCustomerDate.text.toString().toInt()
                             customers[p1].customerCourse = view.editUpCustomerCourse.text.toString().toInt()
                             customers[p1].customerNo = view.editUpCustomerNo.text.toString().toInt()
                             customers[p1].customerName = view.editUpCustomerName.text.toString()
-                            customers[p1].customerLatlng = view.editUpCustomerLatlng.text.toString().toDouble()
+                            customers[p1].customerLat = view.editUpCustomerLat.text.toString().toDouble()
+                            customers[p1].customerLng = view.editUpCustomerLng.text.toString().toDouble()
 
                             notifyDataSetChanged()
                             Toast.makeText(mCtx, "Updated Successfull", Toast.LENGTH_SHORT).show()
