@@ -19,9 +19,33 @@ class NaviSettingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_navi_setting)
 
         // スピナー:曜日セット
-        val dateSelect :Spinner = findViewById(R.id.date_in)
+//        fun spinnerDate() {
+//            val dateSelect: Spinner = findViewById(R.id.date_in)
+//            val dateItem = resources.getStringArray(R.array.date_list)
+//            val dateAdapter = ArrayAdapter(this, R.layout.spinner_dropdown_item, dateItem)
+//            dateSelect.adapter = dateAdapter
+//
+//            dateSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+//                override fun onNothingSelected(parent: AdapterView<*>?) {
+//                }
+//
+//                override fun onItemSelected(
+//                        parent: AdapterView<*>?,
+//                        view: View?,
+//                        position: Int,
+//                        id: Long
+//                ) {
+//                    val spinner = parent as? Spinner
+//                    val item1 = spinner?.selectedItem as? String
+//                    dateSet = item1
+//                }
+//            }
+//        }
+
+
+        val dateSelect: Spinner = findViewById(R.id.date_in)
         val dateItem = resources.getStringArray(R.array.date_list)
-        val dateAdapter = ArrayAdapter(this,R.layout.spinner_dropdown_item,dateItem)
+        val dateAdapter = ArrayAdapter(this, R.layout.spinner_dropdown_item, dateItem)
         dateSelect.adapter = dateAdapter
 
         dateSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -41,9 +65,9 @@ class NaviSettingActivity : AppCompatActivity() {
         }
 
         // スピナー:コースセット
-        val courseSelect :Spinner = findViewById(R.id.course_in)
+        val courseSelect: Spinner = findViewById(R.id.course_in)
         val courseItem = resources.getStringArray(R.array.course_list)
-        val courseAdapter = ArrayAdapter(this,R.layout.spinner_dropdown_item,courseItem)
+        val courseAdapter = ArrayAdapter(this, R.layout.spinner_dropdown_item, courseItem)
         courseSelect.adapter = courseAdapter
 
         courseSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -85,5 +109,7 @@ class NaviSettingActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
+
     }
+
 }

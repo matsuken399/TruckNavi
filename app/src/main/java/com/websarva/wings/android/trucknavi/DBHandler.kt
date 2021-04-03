@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 import android.widget.Toast
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.util.*
 
 class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorFactory?, version: Int) :
@@ -20,7 +22,7 @@ class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorF
                 "$COLUMN_NO TEXT," +
                 "$COLUMN_NAME TEXT," +
                 "$COLUMN_Lat DOUBLE DEFAULT 0," +
-        "$COLUMN_Lng DOUBLE DEFAULT 0)")
+                "$COLUMN_Lng DOUBLE DEFAULT 0)")
 
         db?.execSQL(CREATE_CUSTOMERS_TABLE)
     }
@@ -29,7 +31,7 @@ class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorF
     }
 
     fun getCustomers(mCtx: Context): ArrayList<Customer> {
-        val qry = "Select * From $CUSTOMERS_TABLE_NAME"
+        val qry = "Select * From $CUSTOMERS_TABLE_NAME　Where $COLUMN_DATE and $COLUMN_COURSE "
         val db: SQLiteDatabase = this.readableDatabase
         val cursor: Cursor = db.rawQuery(qry, null)
         val customers = ArrayList<Customer>()
@@ -114,7 +116,7 @@ class DBHandler(context: Context, name: String?, factory: SQLiteDatabase.CursorF
 
     companion object {
         private const val DATABASE_NAME = "MyData.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
 
         const val CUSTOMERS_TABLE_NAME = "Customers"
         const val COLUMN_ID = "id"

@@ -38,7 +38,7 @@ class CourseFixActivity : AppCompatActivity() {
     }
 
     private fun viewCustomers() {
-        val customersList = dbHandler.getCustomers(this)
+        val customersList = dbHandler.getCustomers(this,)
         val adapter = CustomerAdapter(this, customersList)
         val rv: RecyclerView = findViewById(R.id.rv)
         rv.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)

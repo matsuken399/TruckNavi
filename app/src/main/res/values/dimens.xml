@@ -8,12 +8,17 @@
     <dimen name="sp_m">30sp</dimen>
     <!-- 文字サイズ（大） -->
     <dimen name="sp_l">40sp</dimen>
+    <!-- 文字サイズ（特大） -->
+    <dimen name="sp_ll">50sp</dimen>
+
     <!-- 余白などのサイズ（小） -->
-    <dimen name="dp_s">4dp</dimen>
+    <dimen name="dp_s">8dp</dimen>
     <!-- 余白などのサイズ（中） -->
-    <dimen name="dp_m">8dp</dimen>
+    <dimen name="dp_m">16dp</dimen>
     <!-- 余白などのサイズ（大） -->
-    <dimen name="dp_l">16dp</dimen>
+    <dimen name="dp_l">32dp</dimen>
+    <!-- 余白などのサイズ（特大） -->
+    <dimen name="dp_ll">40dp</dimen>
 
     <dimen name="fab_margin">16dp</dimen>
 </resources>
