@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddCustomerActivity"
-    android:padding="10dp">
+    android:padding="16dp"
+    tools:context=".add.addFragment">
 
     <EditText
-        android:id="@+id/etAddDate"
-        android:layout_width="wrap_content"
+        android:id="@+id/addDate_et"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/et_date"
         android:inputType="number"
@@ -18,69 +18,74 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etAddCourse"
-        android:layout_width="wrap_content"
+        android:id="@+id/addCourse_et"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:hint="@string/et_course"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAddDate" />
+        app:layout_constraintTop_toBottomOf="@+id/addDate_et" />
 
     <EditText
-        android:id="@+id/etAddNo"
-        android:layout_width="wrap_content"
+        android:id="@+id/addNo_et"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:hint="@string/et_No"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAddCourse" />
+        app:layout_constraintTop_toBottomOf="@+id/addCourse_et" />
 
     <EditText
-        android:id="@+id/etAddName"
-        android:layout_width="wrap_content"
+        android:id="@+id/addName_et"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/et_name"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAddNo" />
+        app:layout_constraintTop_toBottomOf="@+id/addNo_et" />
 
     <EditText
-        android:id="@+id/etAddLat"
-        android:layout_width="wrap_content"
+        android:id="@+id/addLat_et"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
         android:hint="@string/et_lat"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAddName"
-        android:layout_marginBottom="10dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/addName_et" />
 
     <EditText
-        android:id="@+id/etAddLng"
-        android:layout_width="wrap_content"
+        android:id="@+id/addLng_et"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
         android:hint="@string/et_lng"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAddLat"
-        android:layout_marginBottom="10dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/addLat_et" />
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_save"
+        android:layout_marginTop="16dp"
+        android:text="SAVE"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAddLng" />
+        app:layout_constraintTop_toBottomOf="@+id/addLng_et" />
 
     <Button
-        android:id="@+id/btnCancel"
+        android:id="@+id/cancel_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btn_close"
+        android:layout_marginTop="16dp"
+        android:text="CANCEL"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etAddLng" />
+        app:layout_constraintTop_toBottomOf="@+id/addLng_et" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

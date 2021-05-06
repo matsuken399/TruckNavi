@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.ListFragment
 
 class NaviSettingActivity : AppCompatActivity() {
 
@@ -19,30 +20,6 @@ class NaviSettingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_navi_setting)
 
         // スピナー:曜日セット
-//        fun spinnerDate() {
-//            val dateSelect: Spinner = findViewById(R.id.date_in)
-//            val dateItem = resources.getStringArray(R.array.date_list)
-//            val dateAdapter = ArrayAdapter(this, R.layout.spinner_dropdown_item, dateItem)
-//            dateSelect.adapter = dateAdapter
-//
-//            dateSelect.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-//                override fun onNothingSelected(parent: AdapterView<*>?) {
-//                }
-//
-//                override fun onItemSelected(
-//                        parent: AdapterView<*>?,
-//                        view: View?,
-//                        position: Int,
-//                        id: Long
-//                ) {
-//                    val spinner = parent as? Spinner
-//                    val item1 = spinner?.selectedItem as? String
-//                    dateSet = item1
-//                }
-//            }
-//        }
-
-
         val dateSelect: Spinner = findViewById(R.id.date_in)
         val dateItem = resources.getStringArray(R.array.date_list)
         val dateAdapter = ArrayAdapter(this, R.layout.spinner_dropdown_item, dateItem)
@@ -53,10 +30,10 @@ class NaviSettingActivity : AppCompatActivity() {
             }
 
             override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
             ) {
                 val spinner = parent as? Spinner
                 val item1 = spinner?.selectedItem as? String
@@ -75,10 +52,10 @@ class NaviSettingActivity : AppCompatActivity() {
             }
 
             override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
             ) {
                 val spinner = parent as? Spinner
                 val item2 = spinner?.selectedItem as? String
@@ -88,28 +65,19 @@ class NaviSettingActivity : AppCompatActivity() {
 
 
         // 仮マップ表示
-        val MapClick = findViewById<Button>(R.id.btMap)
-
-        MapClick.setOnClickListener {
-            val intent = Intent(this, MapActivity::class.java)
-            startActivity(intent)
+        val mapClick = findViewById<Button>(R.id.btMap)
+        mapClick.setOnClickListener {
+            val intent1 = Intent(this, MapsActivity::class.java)
+            startActivity(intent1)
         }
 
         // コース修正画面表示
-        val FixClick = findViewById<Button>(R.id.btCourseFix)
-
-        FixClick.setOnClickListener {
-            val intent = Intent(this, CourseFixActivity::class.java)
-
-            val dateResult = dateSet
-            val courseResult = courseSet
-
-            intent.putExtra("date", dateResult)
-            intent.putExtra("course", courseResult)
-
-            startActivity(intent)
+        val fixClick = findViewById<Button>(R.id.btCourseFix)
+        fixClick.setOnClickListener {
+            val intent2 = Intent(this, BaseActivity::class.java)
+            startActivity(intent2)
         }
-
     }
+
 
 }

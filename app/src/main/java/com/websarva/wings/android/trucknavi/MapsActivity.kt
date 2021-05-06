@@ -2,11 +2,12 @@ package com.websarva.wings.android.trucknavi
 
 import android.Manifest
 import android.content.pm.PackageManager
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -15,20 +16,20 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import java.util.*
 
-class MapActivity : AppCompatActivity(), OnMapReadyCallback {
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
     private val REQUEST_LOCATION_PERMISSION = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_map)
+        setContentView(R.layout.activity_maps)
 
         // 戻るボタン
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val mapFragment = supportFragmentManager
-                .findFragmentById(R.id.map) as SupportMapFragment
+            .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
@@ -40,7 +41,8 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         return super.onOptionsItemSelected(item)
     }
 
-    // センター表示
+
+
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
 
@@ -51,48 +53,40 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         setMapLongClick(map)
         enableMyLocation()
     }
-
     // 位置情報取得
     private fun isPermissionGranted(): Boolean {
         return ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
+            this,
+            Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED
     }
 
     // permission取得
     private fun enableMyLocation() {
         if (isPermissionGranted()) {
             if (ActivityCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.ACCESS_FINE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.ACCESS_COARSE_LOCATION
-                    ) != PackageManager.PERMISSION_GRANTED
+                    this,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.ACCESS_COARSE_LOCATION
+                ) != PackageManager.PERMISSION_GRANTED
             ) {
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
                 return
             }
             map.isMyLocationEnabled = true
         } else {
             ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION),
-                    REQUEST_LOCATION_PERMISSION
+                this,
+                arrayOf<String>(Manifest.permission.ACCESS_FINE_LOCATION),
+                REQUEST_LOCATION_PERMISSION
             )
         }
     }
 
     override fun onRequestPermissionsResult(
-            requestCode: Int,
-            permissions: Array<String>,
-            grantResults: IntArray) {
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray) {
         if (requestCode == REQUEST_LOCATION_PERMISSION) {
             if (grantResults.contains(PackageManager.PERMISSION_GRANTED)) {
                 enableMyLocation()
@@ -110,10 +104,10 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 latLng.longitude
             )
             map.addMarker(
-                    MarkerOptions()
-                        .position(latLng)
-                        .title("位置情報")
-                        .snippet(snippet)
+                MarkerOptions()
+                    .position(latLng)
+                    .title("位置情報")
+                    .snippet(snippet)
             )
         }
     }
