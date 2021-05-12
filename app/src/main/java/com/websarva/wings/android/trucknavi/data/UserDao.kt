@@ -20,6 +20,6 @@ interface UserDao {
     suspend fun deleteAllUsers()
 
 //    @Query("SELECT * FROM user_table ORDER BY id ASC")
-    @Query("SELECT * FROM user_table WHERE date = :dateSet")
-    fun readAllData(dateSet: Int): LiveData<List<User>>
+    @Query("SELECT * FROM user_table WHERE date = :dateSet and course = :courseSet")
+    fun readAllData(dateSet: Int,courseSet:Int): LiveData<List<User>>
 }

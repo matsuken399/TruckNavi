@@ -8,7 +8,9 @@ import com.websarva.wings.android.trucknavi.model.User
 class UserRepository(private val userDao: UserDao) {
 
     val dateSet = 2
-    val readAllData: LiveData<List<User>> = userDao.readAllData(dateSet = dateSet)
+    val courseSet = 2
+
+    val readAllData: LiveData<List<User>> = userDao.readAllData(dateSet = dateSet,courseSet = courseSet)
 
     suspend fun addUser(user: User) {
         userDao.addUser(user)
